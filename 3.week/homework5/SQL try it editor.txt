@@ -1,0 +1,21 @@
+SELECT * FROM Customers
+select * from Customers where Country = 'UK' or Country = 'Germany';
+SELECT * FROM Products where CategoryID = 1 and Price >10
+SELECT * FROM Products order by SupplierId
+SELECT * FROM Products order by Price desc
+SELECT * FROM Products where CategoryId = 1 order by Price desc
+SELECT count(*) from Products
+SELECT count(*) FROM [Products] where CategoryId=3
+SELECT count(*) CategoryId3olanürünlerinadedi FROM [Products] where CategoryId=3
+SELECT CategoryId FROM [Products] group by CategoryId
+SELECT CategoryId, count(*) FROM [Products] group by CategoryId
+SELECT CategoryId, count(*) FROM [Products] group by CategoryId having count(*)<11
+SELECT CategoryId, count(*) FROM [Products] where Price >20 group by CategoryId having count(*)<11
+SELECT * from Products inner join Categories on Products.CategoryId = Categories.CategoryId
+SELECT Products.ProductName, Products.CategoryId, Products.Price, Categories.Description from Products inner join Categories on Products.CategoryId = Categories.CategoryId;
+SELECT Products.ProductName, Categories.CategoryName,Products.CategoryId, Products.Price, Categories.Description
+from Products inner join Categories on Products.CategoryId = Categories.CategoryId
+where Products.Price >10
+SELECT * FROM Customers c inner join Orders o on c.CustomerId = o.CustomerId where o.CustomerId is null
+SELECT * FROM Customers c left join Orders o on c.CustomerId = o.CustomerId where o.OrderId is null
+SELECT * FROM Customers c inner join Orders o on c.CustomerId = o.CustomerId inner join OrderDetails od on od.OrderId= o.OrderId
